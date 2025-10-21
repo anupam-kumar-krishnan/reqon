@@ -88,6 +88,7 @@ model Workspace {
   owner User @relation("UserWorkspaces", fields: [ownerId], references: [id])
 
   members WorkspaceMember[]
+  collections Collection[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
@@ -115,4 +116,64 @@ model WorkspaceMember {
   updatedAt DateTime @default(now()) @updatedAt
 
   @@unique([userId, workspaceId])
+}
+
+
+//
+// ----------------- COLLECTIONS & REQUESTS --------------------
+//
+
+model Collection{
+  id String @id @default(cuid())
+  name String
+
+  workspaceId String
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  requests Request[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+enum REST_METHOD {
+  GET
+  POST
+  PUT
+  PATCH
+  DELETE
+}
+
+model Request {
+  id          String      @id @default(cuid())
+  name        String
+  method      REST_METHOD @default(GET)
+  url         String
+  parameters  Json?
+  headers     Json?       // e.g. 
+  
+  body        Json?       // request body (JSON / text)
+  response    Json?       // optional: save last response
+
+  collectionId String
+  collection   Collection  @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  runs         RequestRun[]
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @default(now()) @updatedAt
+}
+
+model RequestRun {
+  id         String   @id @default(cuid())
+
+  requestId  String
+  request    Request  @relation(fields: [requestId], references: [id], onDelete: Cascade)
+
+  status     Int
+  statusText String?
+  headers    Json?
+  body       String?   // raw text or JSON string
+  durationMs Int?
+
+  createdAt  DateTime @default(now())
 }
