@@ -25,7 +25,7 @@ import DeleteCollectionModal from "./delete-collection-modal";
 import SaveRequestToCollectionModal from "./add-request-modal";
 import { useGetAllRequestFromCollection } from "@/modules/request/hooks/request";
 import { REST_METHOD } from "@prisma/client";
-//import { useRequestPlaygroundStore } from "@/modules/request/store/useRequestStore";
+import { useRequestPlayground as useRequestPlaygroundStore } from "@/modules/request/store/useRequestStore";
 
 interface Props {
   collection: {
@@ -41,7 +41,7 @@ const CollectionFolder = ({ collection }: Props) => {
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [isAddRequestOpen, setIsAddRequestOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
-
+  const { openRequestTab } = useRequestPlaygroundStore();
   const {
     data: requestData,
     isPending,
@@ -152,7 +152,7 @@ const CollectionFolder = ({ collection }: Props) => {
                 {requestData.map((request: any) => (
                   <div
                     key={request.id}
-                    // onClick={() => openRequestTab(request)}
+                    onClick={() => openRequestTab(request)}
                     className="flex items-center justify-between py-2 px-3 hover:bg-zinc-900/50 rounded-md cursor-pointer group transition-colors"
                   >
                     <div className="flex items-center space-x-3 flex-1">
