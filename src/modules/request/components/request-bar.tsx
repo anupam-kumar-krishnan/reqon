@@ -70,7 +70,7 @@ const RequestBar = ({ tab, updateTab }: Props) => {
         disabled={!tab.url}
         className="ml-2 text-white font-semibold bg-indigo-500 hover:bg-indigo-600"
       >
-        <Send className="mr-2" />
+        <Send className="" />
         Send
       </Button>
     </div>
