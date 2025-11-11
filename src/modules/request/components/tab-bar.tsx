@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useRequestPlayground as useRequestPlaygroundStore } from "../store/useRequestStore";
 import { X } from "lucide-react";
+import AddNameModal from "./add-name-modal";
 
 const TabBar = () => {
   const { tabs, activeTabId, setActiveTab, addTab, closeTab } =
@@ -16,7 +17,10 @@ const TabBar = () => {
     DELETE: "text-red-500",
   };
 
-  const onDoubleClick = (id: string) => {};
+  const onDoubleClick = (tabId: string) => {
+    setSelectedTabId(tabId);
+    setRenameModalOpen(true);
+  };
 
   return (
     <>
@@ -49,7 +53,7 @@ const TabBar = () => {
               )}
             </p>
             <X
-              className="hidden group-hover:inline w-4 h-4 ml-2 hover:text-red-500 transition-all ease-in-out"
+              className="hidden group-hover:inline w-4 h-4 ml-2 hover:text-indigo-400 transition-all ease-in-out"
               onClick={(e) => {
                 e.stopPropagation();
                 closeTab(tab.id);
@@ -59,11 +63,18 @@ const TabBar = () => {
         ))}
         <button
           onClick={addTab}
-          className="px-3 py-1 text-zinc-400 hover:text-white"
+          className="px-3 py-1 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-sm"
         >
           +
         </button>
       </div>
+      {selectedTabId && (
+        <AddNameModal
+          isModalOpen={renameModalOpen}
+          setIsModalOpen={setRenameModalOpen}
+          tabId={selectedTabId}
+        />
+      )}
     </>
   );
 };
