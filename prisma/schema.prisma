@@ -172,7 +172,7 @@ model RequestRun {
   status     Int
   statusText String?
   headers    Json?
-  body       String?   // raw text or JSON string
+  body       Json?   // raw text or JSON string
   durationMs Int?
 
   createdAt  DateTime @default(now())

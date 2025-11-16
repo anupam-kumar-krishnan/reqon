@@ -2,9 +2,11 @@ import React from "react";
 import { useRequestPlayground as useRequestPlaygroundStore } from "../store/useRequestStore";
 import RequestBar from "./request-bar";
 import RequestEditorArea from "./request-editor-area";
+import ResponseViewer from "./response-viewer";
 
 const RequestEditor = () => {
-  const { tabs, activeTabId, updateTab } = useRequestPlaygroundStore();
+  const { tabs, activeTabId, updateTab, responseViewerData } =
+    useRequestPlaygroundStore();
   const activeTab = tabs.find((t) => t.id === activeTabId) || tabs[0];
 
   if (!activeTabId) return null;
@@ -16,6 +18,9 @@ const RequestEditor = () => {
       <div className="flex flex-1 flex-col w-full justify-start item-center">
         <RequestEditorArea tab={activeTab} updateTab={updateTab} />
       </div>
+      {responseViewerData && (
+        <ResponseViewer responseData={responseViewerData} />
+      )}
     </div>
   );
 };
