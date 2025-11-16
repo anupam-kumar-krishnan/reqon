@@ -9,7 +9,6 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      {/* @ts-ignore */}
       {/*Header*/}
       <Header user={user} />
       <main className="max-h-[calc(100vh-4rem)] h-[calc(100vh-4rem)] flex flex-1 overflow-hidden">

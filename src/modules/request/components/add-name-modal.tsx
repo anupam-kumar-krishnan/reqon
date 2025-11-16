@@ -28,7 +28,7 @@ const AddNameModal = ({
     try {
       updateTab(tabId, { title: name });
       markUnsaved(tabId, true);
-      toast.success("Request name updated");
+      toast.success("Request Name Updated");
       setIsModalOpen(false);
     } catch (err) {
       toast.error("Failed to Update Request Name");

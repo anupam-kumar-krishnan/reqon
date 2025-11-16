@@ -31,6 +31,7 @@ import {
   AlignLeft,
   FileText,
   Sparkles,
+  Braces,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGenerateJsonBody } from "@/modules/ai/hooks/ai-suggestion";
@@ -38,6 +39,7 @@ import { useGenerateJsonBody } from "@/modules/ai/hooks/ai-suggestion";
 import { useWorkspaceStore } from "@/modules/layout/store";
 import { useRequestPlayground as useRequestPlaygroundStore } from "../store/useRequestStore";
 import { describe } from "node:test";
+import { toast } from "sonner";
 
 const MonacoEditor = dynamic(() => import("@monaco-editor/react"), {
   ssr: false,
@@ -87,6 +89,7 @@ const BodyEditor: React.FC<BodyEditorProps> = ({
       try {
         await navigator.clipboard.writeText(bodyValue);
         setCopied(true);
+        toast.success("Coppied Request Body Successfully!");
         setTimeout(() => setCopied(false), 2000);
       } catch (err) {
         console.error("Failed to copy:", err);
@@ -99,6 +102,7 @@ const BodyEditor: React.FC<BodyEditorProps> = ({
       try {
         const formatted = JSON.stringify(JSON.parse(bodyValue), null, 2);
         form.setValue("body", formatted);
+        toast.success("Formatted Successfully!");
       } catch (error) {
         console.error("Invalid JSON Format");
       }
@@ -112,13 +116,13 @@ const BodyEditor: React.FC<BodyEditorProps> = ({
   const contentTypeOptions = [
     {
       value: "application/json",
-      label: "application/json",
-      icon: Code,
+      label: "application / json",
+      icon: Braces,
       description: "JON data format",
     },
     {
       value: "text/plain",
-      label: "text/plain",
+      label: "text / plain",
       icon: FileText,
       description: "Plain text format",
     },
@@ -229,7 +233,7 @@ const BodyEditor: React.FC<BodyEditorProps> = ({
                         automaticLayout: true,
                         minimap: { enabled: false },
                         scrollBeyondLastLine: false,
-                        fontSize: 18,
+                        fontSize: 14,
                         lineNumbers: "on",
                         roundedSelection: false,
                         padding: { top: 16, bottom: 16 },

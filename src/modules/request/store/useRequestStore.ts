@@ -4,6 +4,32 @@ import { StringToBoolean } from "class-variance-authority/types";
 import { title } from "process";
 import { methods } from "better-auth/react";
 
+type HeadersMap = Record<string, string>;
+
+interface RequestRun {
+  id: string;
+  requestId?: string;
+  status?: number;
+  statusText?: string;
+  headers?: HeadersMap;
+  body?: string | object | null;
+  durationMs?: number;
+  createdAt?: string;
+}
+
+interface Result {
+  status?: number;
+  statusText?: string;
+  duration?: number;
+  size?: number;
+}
+
+export interface ResponseData {
+  success: boolean;
+  requestRun: RequestRun;
+  result?: Result;
+}
+
 export type RequestTab = {
   id: string;
   title: string;
@@ -16,6 +42,8 @@ export type RequestTab = {
   requestId?: string;
   collectionId?: string;
   workspaceId?: string;
+  responseViewerData: ResponseData | null;
+  setResponseViewerData: (data: ResponseData) => void;
 };
 
 interface SavedRequest {
@@ -41,13 +69,16 @@ type PlaygroundState = {
     tabId: string,
     savedRequest: SavedRequest
   ) => void;
-  // responsiveViewerData: ResponseData | null;
-  // setResponsiveViewerData: (data: ResponseData) => void;
+  responseViewerData: ResponseData | null;
+  setResponseViewerData: (data: ResponseData) => void;
 };
 
 // @ts-ignore
 
 export const useRequestPlayground = create<PlaygroundState>((set) => ({
+  responseViewerData: null,
+  setResponseViewerData: (data) => set({ responseViewerData: data }),
+
   tabs: [],
   activeTabId: null,
 

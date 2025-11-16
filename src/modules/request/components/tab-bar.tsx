@@ -47,13 +47,13 @@ const TabBar = () => {
             <p className="max-w-xs truncate font-semibold flex items-center gap-1">
               {tab.title}
               {tab.unsavedChanges && (
-                <span className="text-red-500 group-hover:hidden transition-all ease-in-out">
+                <span className="text-red-400 animate-pulse shadow-lg group-hover:hidden transition-all ease-in-out">
                   •
                 </span>
               )}
             </p>
             <X
-              className="hidden group-hover:inline w-4 h-4 ml-2 hover:text-indigo-400 transition-all ease-in-out"
+              className="hidden group-hover:inline w-4 h-4 hover:text-red-400 transition-all ease-in-out"
               onClick={(e) => {
                 e.stopPropagation();
                 closeTab(tab.id);

@@ -9,7 +9,7 @@ import InviteMember from "./invite-member";
 import Workspace from "./workspace";
 
 interface Props {
-  user: UserProps;
+  user: UserProps | null;
 }
 
 const Header = ({ user }: Props) => {
@@ -26,14 +26,14 @@ const Header = ({ user }: Props) => {
         >
           <filter
             id="a"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
             height="54"
             width="48"
             x="0"
             y="-3"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -102,14 +102,14 @@ const Header = ({ user }: Props) => {
           </filter>
           <filter
             id="b"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
             height="44.3333"
             width="37.9993"
             x="4.99935"
             y="4.20833"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               result="hardAlpha"
@@ -149,12 +149,12 @@ const Header = ({ user }: Props) => {
             y1=".000001"
             y2="48"
           >
-            <stop offset="0" stop-color="#fff" stop-opacity="0" />
-            <stop offset="1" stop-color="#fff" stop-opacity=".12" />
+            <stop offset="0" stopColor="#fff" stopOpacity="0" />
+            <stop offset="1" stopColor="#fff" stopOpacity=".12" />
           </linearGradient>
           <linearGradient id="d">
-            <stop offset="0" stop-color="#fff" stop-opacity=".8" />
-            <stop offset="1" stop-color="#fff" stop-opacity=".5" />
+            <stop offset="0" stopColor="#fff" stopOpacity=".8" />
+            <stop offset="1" stopColor="#fff" stopOpacity=".5" />
           </linearGradient>
           <linearGradient
             id="e"
@@ -191,14 +191,14 @@ const Header = ({ user }: Props) => {
             y1="0"
             y2="48"
           >
-            <stop offset="0" stop-color="#fff" stop-opacity=".12" />
-            <stop offset="1" stop-color="#fff" stop-opacity="0" />
+            <stop offset="0" stopColor="#fff" stopOpacity=".12" />
+            <stop offset="1" stopColor="#fff" stopOpacity="0" />
           </linearGradient>
           <clipPath id="i">
             <rect height="48" rx="12" width="48" />
           </clipPath>
           <g filter="url(#a)">
-            <g clip-path="url(#i)">
+            <g clipPath="url(#i)">
               <rect fill="#22262F" height="48" rx="12" width="48" />
               <path d="m0 0h48v48h-48z" fill="url(#c)" />
               <g filter="url(#b)">
@@ -223,7 +223,7 @@ const Header = ({ user }: Props) => {
               height="46"
               rx="11"
               stroke="url(#h)"
-              stroke-width="2"
+              strokeWidth="2"
               width="46"
               x="1"
               y="1"
@@ -242,7 +242,7 @@ const Header = ({ user }: Props) => {
         </div>
       </div>
 
-      <div className="col-span-2 flex items-center justify-end space-x-2 jover:cursor-pointer hover:opacity-80">
+      <div className="col-span-2 flex items-center justify-end space-x-2 hover:opacity-80">
         {/*Invite Memeber*/}
         <InviteMember />
         {/*Workspace*/}
