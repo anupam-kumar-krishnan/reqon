@@ -15,7 +15,7 @@ import React from "react";
 const LoginPage = () => {
   return (
     <section
-      className="flex min-h-screen bg-zinc-50 dark:bg-transparent px-16 py-16 md:py-32"
+      className="flex min-h-screen bg-black dark:bg-transparent px-16 py-16 md:py-32"
       style={{
         backgroundImage: `
         repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),
@@ -26,7 +26,7 @@ const LoginPage = () => {
         backgroundSize: "40px 40px, 40px 40px, 40px 40px, 40px 40px",
       }}
     >
-      <div className="bg-card m-auto h-fit w-full max-w-sm rounded-[calc(var(--radius)+.125rem)] border p-0.5 shadow-md dark:[--color-muted:var(--color-zinc-900)]">
+      <div className="m-auto h-fit w-full max-w-sm rounded-[calc(var(--radius)+.125rem)] p-0.5 shadow-md bg-zinc-900 border-zinc-700 border-1 text-white">
         <div className="p-8 pb-8">
           <div>
             <Link href={"/"}>
@@ -272,7 +272,7 @@ const LoginPage = () => {
           <div className="mt-6 grid grid-cols-1 gap-3">
             <Button
               variant="outline"
-              className="w-full"
+              className="w-full bg-zinc-800 border-1 border-zinc-700 hover:bg-zinc-600 hover:text-white"
               onClick={() =>
                 signIn.social({
                   provider: "github",
