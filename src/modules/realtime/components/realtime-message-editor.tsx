@@ -18,7 +18,7 @@ const RealtimeMessageEditor = () => {
   useEffect(() => {
     if (!draftMessage) {
       const initial =
-        '{\n  "type": "message",\n  "content": "Hello WebSocket!",\n  "timestamp": "' +
+        '{\n  "type": "message",\n  "content": "Hello WebSocket From - Reqon!",\n  "timestamp": "' +
         new Date().toISOString() +
         '"\n}';
       setDraftMessage(initial);
@@ -60,7 +60,7 @@ const RealtimeMessageEditor = () => {
       console.error("Error sending message:", error);
       toast.error(
         "Error sending message: " +
-          (error instanceof Error ? error.message : String(error))
+          (error instanceof Error ? error.message : String(error)),
       );
     } finally {
       setIsSending(false);
@@ -96,7 +96,7 @@ const RealtimeMessageEditor = () => {
         handleSendMessage();
       });
     },
-    [handleSendMessage]
+    [handleSendMessage],
   );
 
   const handleFormatJSON = useCallback(() => {

@@ -44,3 +44,7 @@ A tool to manage REST APIs and WebSockets connections efficiently.
 ### Web Socket
 
 ![Web Socket](/screenshots/Websocket.png)
+
+### 🎥 Walkthrough
+
+![Reqon Walkthrough](/screenshots/reqon_walkthrough.gif)
