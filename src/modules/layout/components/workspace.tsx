@@ -15,7 +15,7 @@ import { useWorkspaces } from "@/modules/workspace/hooks/workspace";
 import { useWorkspaceStore } from "../store";
 import CreateWorkspace from "./create-workspace";
 
-const workspace = () => {
+const Workspace = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data: workspaces, isLoading } = useWorkspaces();
@@ -86,4 +86,4 @@ const workspace = () => {
   );
 };
 
-export default workspace;
+export default Workspace;
