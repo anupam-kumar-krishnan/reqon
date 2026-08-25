@@ -302,7 +302,7 @@ const LoginPage = () => {
             </Button>
 
             <p className="relative text-xs leading-relaxed text-center mt-6 text-[#5B6172]">
-              By continuing, you agree to Reqon's{" "}
+              By continuing, you agree to Reqon&apos;s{" "}
               <a
                 href="#terms"
                 className="underline decoration-dotted hover:text-[#9AA1B2]"

@@ -676,9 +676,9 @@ export default function ReqonLanding() {
               className="text-lg leading-relaxed mb-9 max-w-md"
               style={{ color: "#9AA1B2" }}
             >
-              Reqon is the API workspace for people who'd rather ship than fight
-              their tools — collections, environments, WebSockets, and a
-              response viewer that doesn't get in your way.
+              Reqon is the API workspace for people who&apos;d rather ship than
+              fight their tools — collections, environments, WebSockets, and a
+              response viewer that doesn&apos;t get in your way.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
