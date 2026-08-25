@@ -87,7 +87,7 @@ const ResponseViewer = ({ responseData }: Props) => {
       responseBody = rawBody ?? {};
     }
     formattedJsonString = JSON.stringify(responseBody, null, 2);
-  } catch (e) {
+  } catch {
     // If parsing fails, fall back to the raw string
     responseBody = responseData?.requestRun?.body ?? {};
     formattedJsonString =
@@ -117,7 +117,7 @@ const ResponseViewer = ({ responseData }: Props) => {
                   <span className="text-gray-400">Status:</span>
                   <Badge
                     className={`${getStatusColor(
-                      status
+                      status,
                     )} bg-transparent border-current`}
                   >
                     {status ?? "—"} • {statusText ?? ""}
@@ -312,7 +312,7 @@ const ResponseViewer = ({ responseData }: Props) => {
                   <div className="p-6">
                     <div className="space-y-3">
                       {Object.entries(
-                        responseData?.requestRun?.headers ?? {}
+                        responseData?.requestRun?.headers ?? {},
                       ).map(([key, value]) => (
                         <div
                           key={key}

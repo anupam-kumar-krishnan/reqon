@@ -19,7 +19,7 @@ export function useAddRequestToCollection(collectionId: string) {
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["requests", collectionId] });
 
-      // @ts-ignore
+      // @ts-expect-error: server action return type doesn't match SavedRequest shape
       updateTabFromSavedRequest(activeTabId!, data);
     },
   });
@@ -43,7 +43,7 @@ export function useSaveRequest(id: string) {
 
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["requests"] });
-      // @ts-expect-error
+      // @ts-expect-error: server action return type doesn't match SavedRequest shape
       updateTabFromSavedRequest(activeTabId!, data);
     },
   });
@@ -58,7 +58,7 @@ export function useRunRequest(requestId: string) {
     mutationFn: async () => await run(requestId),
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["requests"] });
-      // @ts-ignore
+      // @ts-expect-error: server action return type doesn't match ResponseData shape
       setResponseViewerData(data);
     },
   });

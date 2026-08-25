@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import { useRequestPlayground as useRequestPlaygroundStore } from "../store/useRequestStore";
 import { useSaveRequest } from "../hooks/request";
-import { ArrowUpDown, Command, Keyboard, Minimize2 } from "lucide-react";
-import { Kbd } from "@/components/ui/kbd";
+import { ArrowUpDown, Command, Keyboard } from "lucide-react";
 import TabBar from "./tab-bar";
 import { useHotkeys } from "react-hotkeys-hook";
 import { toast } from "sonner";
@@ -16,7 +15,7 @@ const Playground = () => {
 
   const activeTab = tabs.find((t) => t.id === activeTabId);
 
-  const { mutateAsync, isPending } = useSaveRequest(activeTab?.requestId!);
+  const { mutateAsync } = useSaveRequest(activeTab?.requestId ?? "");
   const [showSaveModal, setshowSaveModal] = useState(false);
 
   const getCurrentRequestData = () => {
