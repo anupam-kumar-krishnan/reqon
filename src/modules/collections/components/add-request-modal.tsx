@@ -25,7 +25,7 @@ const SaveRequestToCollectionModal = ({
   setIsModalOpen,
   requestData = {
     name: "Untitled",
-    url: "https://echo.hoppscotch.io",
+    url: "https://framerly-shot.vercel.app",
     method: REST_METHOD.GET,
   },
   initialName = "Untitled",
@@ -43,7 +43,7 @@ const SaveRequestToCollectionModal = ({
 }) => {
   const [requestName, setRequestName] = useState(initialName);
   const [selectedCollectionId, setSelectedCollectionId] = useState<string>(
-    collectionId || ""
+    collectionId || "",
   );
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -82,11 +82,11 @@ const SaveRequestToCollectionModal = ({
 
   const filteredCollections =
     collections?.filter((collection) =>
-      collection.name.toLowerCase().includes(searchTerm.toLowerCase())
+      collection.name.toLowerCase().includes(searchTerm.toLowerCase()),
     ) || [];
 
   const selectedCollection = collections?.find(
-    (c) => c.id === selectedCollectionId
+    (c) => c.id === selectedCollectionId,
   );
 
   const handleSubmit = async () => {
@@ -108,7 +108,7 @@ const SaveRequestToCollectionModal = ({
       });
 
       toast.success(
-        `Request saved to "${selectedCollection?.name}" collection`
+        `Request saved to "${selectedCollection?.name}" collection`,
       );
       setIsModalOpen(false);
     } catch (err) {

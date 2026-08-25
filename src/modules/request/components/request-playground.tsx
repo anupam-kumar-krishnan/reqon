@@ -24,7 +24,7 @@ const Playground = () => {
       return {
         name: "Untitled Request",
         method: REST_METHOD.GET as REST_METHOD,
-        url: "https://echo.hoppscotch.io",
+        url: "https://framerly-shot.vercel.app",
       };
     }
 
@@ -49,7 +49,7 @@ const Playground = () => {
       if (activeTab.collectionId) {
         try {
           await mutateAsync({
-            url: activeTab.url || "https://echo.hoppscotch.io",
+            url: activeTab.url || "https://framerly-shot.vercel.app",
             method: activeTab.method as REST_METHOD,
             name: activeTab.title || "Untitled Request",
             body: activeTab.body,
@@ -67,7 +67,7 @@ const Playground = () => {
       }
     },
     { preventDefault: true, enableOnFormTags: true },
-    [activeTab]
+    [activeTab],
   );
 
   useHotkeys(
@@ -82,7 +82,7 @@ const Playground = () => {
       preventDefault: true,
       enableOnFormTags: true,
     },
-    []
+    [],
   );
 
   if (!activeTab) {

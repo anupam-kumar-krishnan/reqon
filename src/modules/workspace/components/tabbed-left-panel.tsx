@@ -11,8 +11,8 @@ const TabbedLeftPanel = () => {
   const activeTab = pathname.split("/")[1] || "rest"; // default to "rest" on home
 
   const sidebarItems = [
-    { icon: LinkIcon, label: "rest", link: "/" },
-    { icon: Globe, label: "realtime", link: "/realtime" },
+    { icon: LinkIcon, label: "Rest", link: "/workspace" },
+    { icon: Globe, label: "Realtime", link: "/workspace/realtime" },
   ];
 
   return (
