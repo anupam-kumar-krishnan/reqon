@@ -1,8 +1,5 @@
 import { create } from "zustand";
 import { nanoid } from "nanoid";
-import { StringToBoolean } from "class-variance-authority/types";
-import { title } from "process";
-import { methods } from "better-auth/react";
 
 type HeadersMap = Record<string, string>;
 
@@ -42,8 +39,8 @@ export type RequestTab = {
   requestId?: string;
   collectionId?: string;
   workspaceId?: string;
-  responseViewerData: ResponseData | null;
-  setResponseViewerData: (data: ResponseData) => void;
+  // responseViewerData: ResponseData | null;
+  // setResponseViewerData: (data: ResponseData) => void;
 };
 
 interface SavedRequest {
@@ -64,16 +61,15 @@ type PlaygroundState = {
   setActiveTab: (id: string) => void;
   updateTab: (id: string, data: Partial<RequestTab>) => void;
   markUnsaved: (id: string, value: boolean) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   openRequestTab: (req: any) => void;
   updateTabFromSavedRequest: (
     tabId: string,
-    savedRequest: SavedRequest
+    savedRequest: SavedRequest,
   ) => void;
   responseViewerData: ResponseData | null;
   setResponseViewerData: (data: ResponseData) => void;
 };
-
-// @ts-ignore
 
 export const useRequestPlayground = create<PlaygroundState>((set) => ({
   responseViewerData: null,
@@ -115,14 +111,14 @@ export const useRequestPlayground = create<PlaygroundState>((set) => ({
   updateTab: (id, data) =>
     set((state) => ({
       tabs: state.tabs.map((t) =>
-        t.id === id ? { ...t, ...data, unsavedChanges: true } : t
+        t.id === id ? { ...t, ...data, unsavedChanges: true } : t,
       ),
     })),
 
   markUnsaved: (id, value) =>
     set((state) => ({
       tabs: state.tabs.map((t) =>
-        t.id === id ? { ...t, unsavedChanges: value } : t
+        t.id === id ? { ...t, unsavedChanges: value } : t,
       ),
     })),
 
@@ -160,7 +156,7 @@ export const useRequestPlayground = create<PlaygroundState>((set) => ({
         t.id === tabId
           ? {
               ...t,
-              id: savedRequest.id, // Replace temporary id with saced one
+              id: savedRequest.id, // Replace temporary id with saved one
               title: savedRequest.name,
               method: savedRequest.method,
               body: savedRequest?.body,
@@ -169,7 +165,7 @@ export const useRequestPlayground = create<PlaygroundState>((set) => ({
               url: savedRequest.url,
               unsavedChanges: false,
             }
-          : t
+          : t,
       ),
       activeTabId: savedRequest.id, // keep active in sync
     })),

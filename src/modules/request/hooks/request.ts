@@ -43,7 +43,7 @@ export function useSaveRequest(id: string) {
 
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["requests"] });
-      // @ts-ignore
+      // @ts-expect-error
       updateTabFromSavedRequest(activeTabId!, data);
     },
   });
