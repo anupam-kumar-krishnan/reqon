@@ -9,9 +9,11 @@ import { Button } from "@/components/ui/button";
 export default async function InvitePage({
   params,
 }: {
-  params: { token: string };
+  params: Promise<{ token: string }>;
 }) {
-  const invite = await getInviteByToken(params.token);
+  const { token } = await params;
+
+  const invite = await getInviteByToken(token);
   const user = await currentUser();
 
   if (!invite) {
@@ -24,12 +26,12 @@ export default async function InvitePage({
 
   if (!user) {
     // send them to sign-in, then bounce back here after
-    redirect(`/sign-in?callbackURL=/invite/${params.token}`);
+    redirect(`/sign-in?callbackURL=/invite/${token}`);
   }
 
   async function handleAccept() {
     "use server";
-    const workspaceId = await acceptInvite(params.token);
+    const workspaceId = await acceptInvite(token);
     redirect(`/workspace?joined=${workspaceId}`);
   }
 
