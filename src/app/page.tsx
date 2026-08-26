@@ -12,6 +12,7 @@ import {
   Check,
   Github,
   ChevronRight,
+  LogIn,
 } from "lucide-react";
 
 const FONT_IMPORT = `
@@ -635,10 +636,10 @@ export default function ReqonLanding() {
             </a>
             <a
               href="/sign-in"
-              className="text-sm font-medium px-4 py-2 rounded-lg transition-transform hover:-translate-y-0.5"
+              className="flex text-sm font-medium px-4 py-2 rounded-lg transition-transform hover:-translate-y-0.5"
               style={{ background: "#7C6CFF", color: "#0A0C10" }}
             >
-              Login
+              <LogIn size={16} className="mr-2 align-middle" /> Login
             </a>
           </div>
         </header>
@@ -650,15 +651,38 @@ export default function ReqonLanding() {
         >
           <div>
             <div
-              className="inline-flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-full mb-6"
+              className="relative inline-flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-full mb-6 overflow-hidden"
               style={{
                 color: "#B7ADFF",
                 background: "rgba(124,108,255,0.1)",
-                border: "1px solid rgba(124,108,255,0.25)",
                 fontFamily: "'JetBrains Mono', monospace",
               }}
             >
-              now with native WebSocket testing
+              {/* animated running border */}
+              <span
+                className="pointer-events-none absolute inset-0 rounded-full"
+                style={{
+                  padding: "1px",
+                  background:
+                    "conic-gradient(from var(--angle), transparent 0%, transparent 70%, #B7ADFF 85%, #7C6CFF 90%, #B7ADFF 95%, transparent 100%)",
+                  WebkitMask:
+                    "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                  WebkitMaskComposite: "xor",
+                  maskComposite: "exclude",
+                  animation: "reqon-border-spin 3s linear infinite",
+                }}
+              />
+              {/* static base border underneath, so it's not invisible between sweeps */}
+              <span
+                className="pointer-events-none absolute inset-0 rounded-full"
+                style={{
+                  border: "1px solid rgba(124,108,255,0.25)",
+                }}
+              />
+
+              <span className="relative">
+                Now with native WebSocket testing
+              </span>
             </div>
 
             <h1
@@ -693,14 +717,14 @@ export default function ReqonLanding() {
                   className="transition-transform group-hover:translate-x-0.5"
                 />
               </a>
-              <a
+              {/* <a
                 href="#docs"
                 className="flex items-center gap-1 text-sm font-medium px-5 py-3 rounded-lg"
                 style={{ color: "#E7E9EE", border: "1px solid #232838" }}
               >
                 Read the docs
                 <ChevronRight size={16} />
-              </a>
+              </a> */}
             </div>
 
             <div
@@ -931,7 +955,8 @@ export default function ReqonLanding() {
             className="text-3xl sm:text-4xl font-semibold tracking-tight mb-5"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            Your next request is one keystroke away.
+            Your next <span style={{ color: "#7C6CFF" }}>request</span> is one
+            keystroke away.
           </h2>
           <p
             className="text-base mb-9 max-w-md mx-auto"
@@ -968,7 +993,10 @@ export default function ReqonLanding() {
               className="flex items-center gap-6 text-xs"
               style={{ color: "#5B6172" }}
             >
-              <a href="#github" className="hover:text-white transition-colors">
+              <a
+                href="https://github.com/anupam-kumar-krishnan/reqon"
+                className="hover:text-white transition-colors"
+              >
                 GitHub
               </a>
             </div>
