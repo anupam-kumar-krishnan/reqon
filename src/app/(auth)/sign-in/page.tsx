@@ -283,7 +283,7 @@ const LoginPage = () => {
               Welcome back
             </h1>
             <p className="relative text-sm leading-relaxed mb-8 text-[#9AA1B2]">
-              Sign in to pick up where you left off — your workspaces and
+              Sign in to pick up where you left off - your workspaces and
               collections are right where you left them.
             </p>
 

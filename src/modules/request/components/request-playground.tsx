@@ -23,7 +23,7 @@ const Playground = () => {
       return {
         name: "Untitled Request",
         method: REST_METHOD.GET as REST_METHOD,
-        url: "https://framerly-shot.vercel.app",
+        url: "https://jsonplaceholder.typicode.com/posts",
       };
     }
 
@@ -48,7 +48,7 @@ const Playground = () => {
       if (activeTab.collectionId) {
         try {
           await mutateAsync({
-            url: activeTab.url || "https://framerly-shot.vercel.app",
+            url: activeTab.url || "https://jsonplaceholder.typicode.com/posts",
             method: activeTab.method as REST_METHOD,
             name: activeTab.title || "Untitled Request",
             body: activeTab.body,

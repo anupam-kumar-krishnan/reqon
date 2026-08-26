@@ -25,7 +25,7 @@ const SaveRequestToCollectionModal = ({
   setIsModalOpen,
   requestData = {
     name: "Untitled",
-    url: "https://framerly-shot.vercel.app",
+    url: "https://jsonplaceholder.typicode.com/posts",
     method: REST_METHOD.GET,
   },
   initialName = "Untitled",
