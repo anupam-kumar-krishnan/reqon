@@ -683,11 +683,11 @@ export default function ReqonLanding() {
 
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="#start"
+                href="/sign-in"
                 className="group flex items-center gap-2 text-sm font-medium px-5 py-3 rounded-lg transition-transform hover:-translate-y-0.5"
                 style={{ background: "#7C6CFF", color: "#0A0C10" }}
               >
-                Start testing free
+                Start testing for free
                 <ArrowRight
                   size={16}
                   className="transition-transform group-hover:translate-x-0.5"
@@ -941,11 +941,11 @@ export default function ReqonLanding() {
             from a template.
           </p>
           <a
-            href="#start"
+            href="/sign-in"
             className="inline-flex items-center gap-2 text-sm font-medium px-6 py-3.5 rounded-lg transition-transform hover:-translate-y-0.5"
             style={{ background: "#7C6CFF", color: "#0A0C10" }}
           >
-            Start testing free
+            Start testing for free
             <ArrowRight size={16} />
           </a>
         </section>
