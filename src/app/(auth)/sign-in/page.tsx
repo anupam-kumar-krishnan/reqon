@@ -240,34 +240,15 @@ const LoginPage = () => {
             href="/"
             className="flex items-center justify-center gap-3 mb-10 group w-fit mx-auto lg:hidden"
           >
-            <svg
-              fill="none"
-              height="36"
-              viewBox="0 0 48 48"
-              width="36"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <linearGradient
-                id="c2"
-                gradientUnits="userSpaceOnUse"
-                x1="24"
-                x2="26"
-                y1=".000001"
-                y2="48"
-              >
-                <stop offset="0" stopColor="#fff" stopOpacity="0" />
-                <stop offset="1" stopColor="#fff" stopOpacity=".12" />
-              </linearGradient>
-              <clipPath id="i2">
-                <rect height="48" rx="12" width="48" />
-              </clipPath>
-              <g clipPath="url(#i2)">
-                <rect fill="#22262F" height="48" rx="12" width="48" />
-                <path d="m0 0h48v48h-48z" fill="url(#c2)" />
-              </g>
-            </svg>
+            <Image
+              src="/logo.svg"
+              alt="Reqon logo"
+              width={45}
+              height={45}
+              className=""
+            />
             <span className="text-xl font-semibold tracking-tight transition-colors group-hover:text-[#B7ADFF] font-['Space_Grotesk']">
-              reqon
+              Reqon
             </span>
           </Link>
 
@@ -281,7 +262,7 @@ const LoginPage = () => {
               alt="Reqon logo"
               width={45}
               height={45}
-              className="absolute top-6 right-6 z-10"
+              className="hidden md:block absolute top-6 right-6 z-10"
             />
 
             <div className="relative inline-flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-full mb-6 text-[#B7ADFF] bg-[#7C6CFF]/10 border border-[#7C6CFF]/25 font-['JetBrains_Mono']">
@@ -290,7 +271,8 @@ const LoginPage = () => {
             </div>
 
             <h1 className="relative flex text-2xl font-semibold tracking-tight mb-2 font-['Space_Grotesk']">
-              Welcome to Reqon
+              Welcome to
+              <span className="text-[#7C6CFF] ml-2">Reqon</span>
             </h1>
             <p className="relative text-sm leading-relaxed mb-8 text-[#9AA1B2]">
               Sign in to pick up where you left off - your workspaces and
