@@ -1,8 +1,10 @@
-![Reqon Banner](/screenshots/Banner.png)
+![Reqon Banner](/screenshots/reqon-banner.png)
+
+# _[Reqon](https://reqon-seven.vercel.app/)_
 
 A tool to manage REST APIs and WebSockets connections efficiently.
 
-## 🛠️ Tech Stack
+## 🛠️ _Tech Stack_
 
 - **Framework:** Next.js
 - **ORM & Database:** Prisma + PostgreSQL
@@ -11,40 +13,41 @@ A tool to manage REST APIs and WebSockets connections efficiently.
 - **Editor:** Monaco Editor
 - **Auth:** Better Auth
 
-## ✨ Features
+## ✨ _Features_
 
 - REST API Client
 - WebSocket Client
 - Workspace
 - Raw Request body editor powered by Monaco Editor
 - JSON pretty print & validation
+- Invite Members
 
 ## 🖼️ Screenshots
 
-### Login Page
+### _Home Page_
 
-![Signin Page](/screenshots/Login%20Screen.png)
+![Home Page](/screenshots/home-page.png)
 
-### Workspace
+### _Login Page_
+
+![Signin Page](/screenshots/login-page.png)
+
+### _Workspace_
 
 ![Workspace](/screenshots/Add%20New%20Workspace.png)
 
-### Create Collection
+### _Create Collection_
 
 ![Create Collection](/screenshots/Create%20Collection.png)
 
-### Get Request
+### _Get Request_
 
 ![GET Request](/screenshots/GET%20Request.png)
 
-### Response Body
+### _Response Body_
 
 ![Response Body](/screenshots/GET%20Request%20-%20Response%20Body.png)
 
-### Web Socket
+### _Web Socket_
 
 ![Web Socket](/screenshots/Websocket.png)
-
-### 🎥 Walkthrough
-
-![Reqon Walkthrough](/screenshots/reqon_walkthrough.gif)
