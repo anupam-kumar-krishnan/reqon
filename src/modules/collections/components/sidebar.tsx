@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import CreateCollection from "./create-collection";
 import EmptyCollections from "./empty-collection";
 import CollectionFolder from "./collection-folder";
+import MembersPanel from "@/modules/workspace/components/members-panel"; // adjust path to match your actual location
 
 interface Props {
   currentWorkspace: {
@@ -95,6 +96,23 @@ const TabbedSidebar = ({ currentWorkspace }: Props) => {
             )}
           </div>
         );
+
+      case "Share":
+        return (
+          <div className="h-full bg-zinc-950 text-zinc-100 flex flex-col">
+            <div className="flex items-center justify-between p-4 border-b border-zinc-800">
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-zinc-400">
+                  {currentWorkspace?.name}
+                </span>
+                <span className="text-zinc-600">{">"}</span>
+                <span className="text-sm font-medium">Members</span>
+              </div>
+            </div>
+            <MembersPanel workspaceId={currentWorkspace.id} />
+          </div>
+        );
+
       default:
         return (
           <div className="p-4 text-zinc-400">Select a tab to view content</div>

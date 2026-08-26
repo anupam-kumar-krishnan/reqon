@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Hint } from "@/components/ui/hint";
 import { Loader, Plus, User } from "lucide-react";
@@ -19,14 +20,37 @@ const Workspace = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data: workspaces, isLoading } = useWorkspaces();
-
   const { selectedWorkspace, setSelectedWorkspace } = useWorkspaceStore();
 
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const joinedWorkspaceId = searchParams.get("joined");
+
   useEffect(() => {
-    if (workspaces && workspaces.length > 0 && !selectedWorkspace) {
+    if (!workspaces || workspaces.length === 0) return;
+
+    // if we just accepted an invite, select that workspace specifically
+    if (joinedWorkspaceId) {
+      const joined = workspaces.find((w) => w.id === joinedWorkspaceId);
+      if (joined) {
+        setSelectedWorkspace(joined);
+        // clean the query param from the URL so it doesn't re-trigger
+        router.replace("/workspace");
+        return;
+      }
+    }
+
+    // default behavior: select the first workspace if none selected yet
+    if (!selectedWorkspace) {
       setSelectedWorkspace(workspaces[0]);
     }
-  }, [workspaces, selectedWorkspace, setSelectedWorkspace]);
+  }, [
+    workspaces,
+    selectedWorkspace,
+    joinedWorkspaceId,
+    setSelectedWorkspace,
+    router,
+  ]);
 
   if (isLoading) {
     return <Loader className="animate-spin size-4 text-indigo-400" />;
