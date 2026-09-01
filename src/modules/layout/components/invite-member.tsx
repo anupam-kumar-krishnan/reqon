@@ -107,7 +107,7 @@ const InviteMember = () => {
           ) : (
             <div className="space-y-2">
               <label className="text-sm text-muted-foreground">
-                Share this link — expires in 7 days
+                Share this link - expires in 7 days
               </label>
               <div className="flex gap-2">
                 <input

@@ -213,7 +213,7 @@ const LoginPage = () => {
             always in reach.
           </h2>
           <p className="text-sm leading-relaxed mb-10 text-[#9AA1B2]">
-            Collections, environments, and WebSockets — all saved to your
+            Collections, environments, and WebSockets - all saved to your
             account, synced the moment you sign in.
           </p>
 
