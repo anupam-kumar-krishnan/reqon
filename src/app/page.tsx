@@ -180,7 +180,7 @@ function LiveConsole() {
             fontFamily: "'JetBrains Mono', monospace",
           }}
         >
-          reqon — Admin-Backend-Edit
+          reqon - Admin-Backend-Edit
         </span>
       </div>
 
@@ -508,7 +508,7 @@ const BENTO_ITEMS: BentoItem[] = [
   {
     icon: FolderTree,
     title: "Workspaces & collections",
-    body: "Group requests the way your API is shaped — by service, by branch, by team. Nest folders as deep as the project needs.",
+    body: "Group requests the way your API is shaped - by service, by branch, by team. Nest folders as deep as the project needs.",
     visual: FolderTreeVisual,
     accent: "#7C6CFF",
     span: "sm:col-span-2 sm:row-span-2",
@@ -516,7 +516,7 @@ const BENTO_ITEMS: BentoItem[] = [
   {
     icon: Send,
     title: "A REST client that keeps up",
-    body: "GET, POST, PUT, DELETE — params, headers, and body live side by side, and every change saves as you type.",
+    body: "GET, POST, PUT, DELETE - params, headers, and body live side by side, and every change saves as you type.",
     visual: MethodCycleVisual,
     accent: "#4ADE80",
     span: "sm:col-span-2",
@@ -540,7 +540,7 @@ const BENTO_ITEMS: BentoItem[] = [
   {
     icon: Users,
     title: "Built for a team",
-    body: "Invite teammates into a workspace and share collections directly — everyone points at the same source of truth.",
+    body: "Invite teammates into a workspace and share collections directly - everyone points at the same source of truth.",
     visual: TeamAvatarsVisual,
     accent: "#60A5FA",
     span: "sm:col-span-2",
@@ -701,7 +701,7 @@ export default function ReqonLanding() {
               style={{ color: "#9AA1B2" }}
             >
               Reqon is the API workspace for people who&apos;d rather ship than
-              fight their tools — collections, environments, WebSockets, and a
+              fight their tools - collections, environments, WebSockets, and a
               response viewer that doesn&apos;t get in your way.
             </p>
 
@@ -873,7 +873,7 @@ export default function ReqonLanding() {
               >
                 Connect to any WebSocket server, send messages with JSON
                 auto-validation, and scroll back through a running log of
-                everything sent and received — timestamped, and one click from
+                everything sent and received - timestamped, and one click from
                 being copied.
               </p>
               <a
